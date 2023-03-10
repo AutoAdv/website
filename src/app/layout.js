@@ -1,38 +1,28 @@
 // app/layout.tsx
 'use client'
 
+import { useState } from 'react'
 import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider } from '@chakra-ui/react'
 
 export default function RootLayout({children}) {
 
-  function searchFunction() {
-    var input, filter, ul, li, txtValue;
-    input = document.getElementById("mySearchBar");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myList");
-    li = ul.getElementsByTagName("li");
-    for (var i = 0; i < li.length; i++) {
-      txtValue = li[i].textContent || li[i].innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
+  const [searchText, setSearchText] = useState("");
+  const listItems = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"];
+
+  function handleSearch(event) {
+    setSearchText(event.target.value);
   }
 
   return (
     <html lang='en'>
       <head />
       <body>
-        <input type="text" id="mySearchBar" onkeyup="searchFunction()" placeholder="Search...">
-        <ul id="myList">
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 4</li>
-          <li>Item 5</li>
+        <input type="text" value={searchText} onChange={handleSearch} placeholder="Search...">
+        <ul>
+          {listItems.filter((item) => item.toUpperCase().includes(searchText.toUpperCase())).map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
         <CacheProvider>
           <ChakraProvider>{children}</ChakraProvider>
