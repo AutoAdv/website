@@ -19,9 +19,9 @@ export default function Home() {
 <Wrap  justify={'center'} spacing='30px' w={'100%'} >
 
 {
-  itemList.items?.map(each => {
+  itemList.items?.map((each,i) => {
     return(
-      <WrapItem >
+      <WrapItem key={i} >
       <Card
       boxShadow={'0 0 4px 0 #0000003d'}
       color={'#8b8c98'} _hover={{
