@@ -1,14 +1,14 @@
 {
   "items": [
     {
-      "title": "AI Ranking ",
-      "description": "balabla",
+      "title": "AI ART ",
+      "description": "The best generative AIs for art, design, gaming, etc.",
       "footer": "3"
     },
     {
-        "title": "Lorem",
-        "description": "Lorem Ipsum",
-        "footer": "Footer"
+        "title": "AI WRITER",
+        "description": "The best generative AIs writing (books, email, assignments, advertisements,etc).",
+        "footer": "Learn more."
       },
       {
         "title": "Lorem",
